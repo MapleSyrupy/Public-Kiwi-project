@@ -1,0 +1,122 @@
+<html lang="en" <% if(darkMode===1) {%>
+data-bs-theme = "dark"
+<% } %>>
+    <%- include("../../boilerplates/boilerplate") %>
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+
+        <body>
+            <button class="btn mt-5" style="float: l; position:absolute; border:gray 0.5px solid; margin-left:20px;"
+            type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">></button>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">ToDo options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="d-grid gap-2">
+                        <button class=" btn border mb-2" style="background-color: rgb(30, 83, 240);"
+                            type="button">Current ToDoes</button>
+                        <a class="btn border mb-2" href="/productivity/toDo/important">Important ToDoes</a>
+                    </div>
+                </div>
+            </div>
+            <div class=" mt-5 container text-center" style="width:1000px; ">
+                <h1 class="mb-3"> ToDoes</h1>
+
+                <h3>New ToDo</h3>
+                <div class="row ">
+                    <form method="POST" action="/productivity/new" class="needs-validation" novalidate>
+                        <div class=" input-group mb-3 col align-self-center">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" name="data[name]" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="input-group mb-3 col align-self-center">
+                            <span class="input-group-text">Description</span>
+                            <textarea class="form-control" aria-label="With textarea" name="data[description]"
+                                required></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <input type="time" name="data[time]" class="mb-3 rounded border">
+                        <input type="date" class="mb-3 rounded border" name="data[date]"><br>
+                        <button class="btn btn-success mb-3">Post</button>
+
+                    </form>
+                    <div class="justify-content-center">
+                        <h2>Lists</h2>
+
+                        <div class="col cards input-group mb-5 justify-content-center " style="margin-left:20px;">
+                            <% for(let todo of data){ %>
+                                <div class="card mt-3 mb-3 rounded"
+                                    style="width: 18rem; margin-right:35px; height:200px; overflow-y:auto;">
+                                    <div class="card-body">
+                                        <div class="form-check" style="position:absolute">
+                                            <form action="/productivity/toDo/<%=todo.id%>/important/?_method=PUT"
+                                                method="post">
+                                                <input onChange="this.form.submit()" class="form-check-input"
+                                                    type="checkbox" value="" id="flexCheckDefault">
+                                            </form>
+                                        </div>
+                                        <h5 class="card-title fs-5 border-bottom">
+                                            <%=todo.name%>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%=todo.description%>
+                                        </p>
+                                        <% if(todo.date&&todo.time){ %>
+                                            <p id="date" class="<%if(todo.isValid ===false){%>
+                                        text-danger
+                                        <% } %>">
+                                                Due: <%= todo.date %> at <%= todo.time %>
+                                            </p>
+                                            <% } %>
+                                                <div>
+                                                    <% if(todo.checked !==true) {%>
+                                                        <form method="POST"
+                                                            action="/productivity/index/<%=todo.id%>/checked?_method=PUT">
+                                                            <button class='btn btn-success'
+                                                                style="float:left;">Check</button>
+
+                                                        </form>
+                                                        <% }else{%>
+                                                            <form method="POST"
+                                                                action="/productivity/index/<%=todo.id%>/unchecked?_method=PUT">
+                                                                <button class='btn btn-danger'
+                                                                    style="float:left;">Uncheck</button>
+                                                            </form>
+                                                            <%} %>
+                                                                <form
+                                                                    action="/productivity/index/<%=todo.id%>/delete?_method=DELETE"
+                                                                    method="POST">
+                                                                    <button class="btn btn-danger"
+                                                                        style="float:right;">Delete</button>
+                                                                </form>
+                                                </div>
+                                                <div>
+                                                    <a href="/productivity/index/<%=todo.id%>/edit"
+                                                        class="card-link btn btn-primary">Edit</a>
+                                                </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+        </body>
+        <script>
+        </script>
+        <script src="/javascripts/BootStrapError.js" type="text/javascript"></script>
+
+</html>

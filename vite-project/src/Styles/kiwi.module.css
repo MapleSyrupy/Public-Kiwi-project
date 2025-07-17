@@ -1,0 +1,85 @@
+
+
+#circle{
+    width:100px;
+    height:100px;
+    border: 2px black solid;
+    border-radius:50%;
+    /* background-color:brown; */
+}
+#circle2{
+    width:50px;
+    height:50px;
+    border: 2px black solid;
+    border-radius:50%;
+    transform: translate(5.4ch, 10mm);
+    background-color:brown;
+}
+#circle3{
+    width:20px;
+    height:20px;
+    border: 2px black solid;
+    border-radius:50%;
+    transform: translate(2ch, 4mm);
+    background-color:white;
+}
+ #line{
+    width:3px;
+    border:5px solid black;
+    border-radius:50%;
+    transform: translate(1ch, 0.9mm);
+} 
+#line2{
+    width:50px;
+    height:1px;
+    border:1px solid black;
+    transform: translate(5.2ch, 8.3mm) rotate(15deg);
+    }
+#line3{
+    width:50px;
+    height:1px;
+    border:1px solid black;
+    transform: translate(5.2ch, 8.3mm) rotate(9deg);
+}
+#line4{
+    width:45px;
+    height:2px;
+     border:1px solid black; 
+    transform: translate(1ch,30.8mm) rotate(100deg);
+}
+#line5{
+    width:45px;
+    height:2px;
+    border:1px solid black;
+    transform: translate(5ch,30.5mm) rotate(-100deg);
+}
+#line6{
+    width:100px;
+    height:2px;
+    border:1px solid green;
+    transform: translate(-0.8ch,5mm)  rotate(25deg);
+}
+#line7{
+    width:18px;
+    height:2px;
+    border:1px solid black;
+    transform:translate(-0.2ch,1.5mm) rotate(45deg);
+}
+#line8{
+    width:18px;
+    height:2px;
+    border:1px solid black;
+    transform:translate(-0.2ch,1.5mm) rotate(135deg);
+}
+/* #line4:hover{
+    transform: translate(1ch,30.8mm) rotate(110deg);
+}
+#line5:hover{
+    transform: translate(5ch,30.5mm) rotate(-110deg);
+}
+#line:hover{
+    transform: translate(0.5ch, 0.9mm);
+}
+#line2:hover{
+    transform: translate(5.2ch, 8mm) rotate(5deg);
+} */

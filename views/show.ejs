@@ -1,0 +1,29 @@
+<html lang="en"  <% if(darkMode === 1) {%>
+    data-bs-theme = "dark"
+    <% }  %>>
+    <%- include("../boilerplates/boilerplate")  %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class = "container text-center mt-5" style = "width:500px;">
+    <div class = "row">
+        <div class="card col align-self-center">
+            <div class="card-body" >
+                <h5 class="card-title border-bottom"><%= found.name %></h5>
+                <p class="card-text" style = "overflow-y: auto;"><%= found.description %></p>
+        <div>
+            <form action = "/productivity/index/<%=found._id%>/delete?_method=DELETE" method = "POST">
+                <button class = "btn btn-danger mt-3">Delete</button>
+            </form>
+          <a href = "/productivity/index/<%=found._id%>/edit">Edit</a>
+        
+        </div>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>

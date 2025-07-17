@@ -1,0 +1,37 @@
+<html lang="en"  <% if(darkMode === 1) {%>
+    data-bs-theme = "dark"
+    <% }  %>>
+<%- include("../boilerplates/boilerplate") %>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+    
+<div class = " mt-5 container text-center" style = "width:1000px">
+<div class="row ">
+    <h1>Edit ToDo</h1>
+    <form action="/productivity/index/edit/<%=found._id%>/put?_method=PUT" method="POST">
+        <div class=" input-group mb-3 col align-self-center">
+            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" name="data[name]" value=<%=found.name%> >
+        </div>
+
+            <div class="input-group mb-3 col align-self-center">
+                <span class="input-group-text">Description</span>
+                <textarea class="form-control" aria-label="With textarea" name = "data[description]" ><%=found.description  %></textarea>
+              </div>
+
+
+        <button class = "btn btn-success mt-3">Edit</button>    
+
+</form>
+</div>
+</div>                 
+    </body>
+
+</html>

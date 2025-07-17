@@ -1,0 +1,22 @@
+.nav-link {
+    margin: 15px;
+    border: 3px solid rgb(117, 115, 116);
+    border-radius: 5px;
+}
+.nav-link:hover {
+    margin: 15px;
+    border: 3px solid rgb(117, 115, 116);
+    border-radius: 5px;
+    background-color:rgb(117,115,116);
+}
+
+#main {
+    width: 200px;
+}
+
+body {
+    width: auto;
+    height: auto;
+    background-image: linear-gradient(rgba(185, 177, 177, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://images.unsplash.com/photo-1522199670076-2852f80289c3?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
